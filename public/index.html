@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sreelekha Anandam | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <style>
+        /* Authentication screen */
+
+        #auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background: #0f172a;
+        }
+
+        .login-card {
+            background: #1e293b;
+            padding: 45px 30px;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(56,189,248,0.15);
+        }
+
+        .login-card h1 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .login-card p {
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+
+        #google-login {
+            display: flex;
+            justify-content: center;
+        }
+
+        #otp-section {
+            display: none;
+            margin-top: 25px;
+        }
+
+        #otp-input {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            border: 1px solid #38bdf8;
+            background: #0f172a;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        #verify-button {
+            padding: 12px 28px;
+            background: #38bdf8;
+            color: #111827;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #auth-message {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        #portfolio-content {
+            display: none;
+        }
+
+        .logout-button {
+            background: transparent;
+            border: 1px solid #38bdf8;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- ================================== -->
+<!-- GOOGLE LOGIN + OTP AUTHENTICATION -->
+<!-- ================================== -->
+
+<div id="auth-container">
+
+    <div class="login-card">
+
+        <h1>Sreelekha.</h1>
+
+        <h2>Welcome to My Portfolio</h2>
+
+        <p>Sign in with Google to explore my portfolio.</p>
+
+        <div id="g_id_onload"
+             data-client_id="164960561020-r1uqv14485e98qh8sv62ug7bn5m68ctl.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+
+        <div id="google-login">
+
+            <div class="g_id_signin"
+                 data-type="standard"
+                 data-size="large"
+                 data-theme="filled_blue"
+                 data-text="signin_with"
+                 data-shape="rectangular">
+            </div>
+
+        </div>
+
+        <div id="otp-section">
+
+            <p id="otp-email"></p>
+
+            <input
+                type="text"
+                id="otp-input"
+                placeholder="Enter 6-digit OTP"
+                maxlength="6"
+                inputmode="numeric"
+                autocomplete="one-time-code">
+
+            <br>
+
+            <button id="verify-button" onclick="verifyOTP()">
+                Verify & Continue
+            </button>
+
+        </div>
+
+        <div id="auth-message"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================================== -->
+<!-- YOUR ORIGINAL PORTFOLIO -->
+<!-- ================================== -->
+
+<div id="portfolio-content">
+
+<header>
+
+    <nav>
+
+        <h2 class="logo">Sreelekha.</h2>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <button class="logout-button" onclick="logout()">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+    <div class="hero-text">
+
+        <h3>Hello, I'm</h3>
+
+        <h1>Sreelekha Anandam</h1>
+
+        <h2>M.Tech Student | Web Developer | DevOps Learner</h2>
+
+        <p>
+            Passionate about Web Development, Java, Cloud Computing,
+            Networking and DevOps.
+        </p>
+
+        <a href="#projects" class="btn">View Projects</a>
+
+        <a href="resume.pdf" class="btn2" download>
+            Download Resume
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="images/profile.jpg" alt="Sreelekha Profile">
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+
+        Hello! I'm <strong>Sreelekha Anandam</strong>, an Integrated
+        M.Tech Computer Science and Engineering student at
+        <strong>VIT-AP University</strong> with a CGPA of
+        <strong>9.18</strong>.
+
+        I am passionate about Software Development, Full Stack Web
+        Development, Java Programming, Cloud Computing, DevOps,
+        and Problem Solving.
+
+        I enjoy building real-world applications that solve
+        practical problems.
+
+        My experience includes developing healthcare, food delivery,
+        and women safety web applications while continuously
+        learning modern software engineering practices.
+
+        Currently, I am expanding my knowledge in DevOps technologies
+        such as Docker, Jenkins, Kubernetes, Git, and GitHub while
+        strengthening my Data Structures & Algorithms skills.
+
+    </p>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="project">
+
+        <h3>VIT-AP University</h3>
+
+        <p>
+
+            Integrated M.Tech in Computer Science & Engineering
+
+            <br>
+
+            CGPA : <strong>9.18</strong>
+
+            <br>
+
+            2023 - Present
+
+        </p>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>Narayana Junior College</h3>
+
+        <p>
+
+            Intermediate (MPC)
+
+            <br>
+
+            Percentage : <strong>96%</strong>
+
+            <br>
+
+            2021 - 2023
+
+        </p>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>NTR Model School</h3>
+
+        <p>
+
+            CBSE
+
+            <br>
+
+            Percentage : <strong>97%</strong>
+
+            <br>
+
+            2020 - 2021
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2>Skills</h2>
+
+    <div class="skill-container">
+
+        <div class="card">Java</div>
+
+        <div class="card">HTML</div>
+
+        <div class="card">CSS</div>
+
+        <div class="card">JavaScript</div>
+
+        <div class="card">Spring Boot</div>
+
+        <div class="card">MySQL</div>
+
+        <div class="card">Git</div>
+
+        <div class="card">GitHub</div>
+
+        <div class="card">Docker</div>
+
+        <div class="card">Jenkins</div>
+
+        <div class="card">Kubernetes</div>
+
+        <div class="card">Cisco Packet Tracer</div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2>Projects</h2>
+
+    <div class="project">
+
+        <h3>Hospital Management System</h3>
+
+        <p>
+
+            ✔ Developed a web-based Hospital Management System
+            using Java, HTML and CSS.
+
+            <br><br>
+
+            ✔ Managed 100+ patient records with appointment scheduling.
+
+            <br><br>
+
+            ✔ Reduced manual work by automating patient registration
+            and appointments.
+
+        </p>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>FoodRush - Food Delivery Website</h3>
+
+        <p>
+
+            ✔ Designed and developed a responsive food ordering website.
+
+            <br><br>
+
+            ✔ Implemented restaurant listings, food categories,
+            shopping cart, checkout and login modules.
+
+            <br><br>
+
+            ✔ Technologies : HTML, CSS, JavaScript
+
+        </p>
+
+    </div>
+
+
+    <div class="project">
+
+        <h3>SafeSteps - Women Safety Companion</h3>
+
+        <p>
+
+            ✔ Built a women safety application with SOS emergency system.
+
+            <br><br>
+
+            ✔ Integrated live location tracking using browser geolocation.
+
+            <br><br>
+
+            ✔ Added nearby police stations, hospitals and emergency
+            helplines.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact</h2>
+
+    <p>Email : sreelekharoyal468@gmail.com</p>
+
+    <p>Phone : +91 9059269441</p>
+
+    <p>
+        GitHub :
+        <a href="https://github.com/SreelekhaAnandam">
+            SreelekhaAnandam
+        </a>
+    </p>
+
+    <p>
+        LinkedIn :
+        <a href="https://www.linkedin.com/in/sreelekha-anandam">
+            Sreelekha Anandam
+        </a>
+    </p>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Sreelekha Anandam | All Rights Reserved.
+    </p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

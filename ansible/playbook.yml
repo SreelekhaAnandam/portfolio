@@ -1,0 +1,38 @@
+- name: Deploy Portfolio Application on AWS EC2
+  hosts: portfolio_servers
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+          - git
+        state: present
+
+    - name: Enable and start Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Clone Application Repository
+      git:
+        repo: 'https://github.com/your-username/portfolio.git'
+        dest: /home/ubuntu/portfolio
+        force: yes
+
+    - name: Build and Run Docker Container
+      community.docker.docker_container:
+        name: portfolio
+        image: portfolio-app
+        build:
+          path: /home/ubuntu/portfolio
+        state: started
+        restart_policy: always
+        published_ports:
+          - "80:5000"

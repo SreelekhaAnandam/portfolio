@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+gmail-token.json
+node_modules/
+logs/
+*.log

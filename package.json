@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-devops",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "google-auth-library": "^11.3.4",
+    "googleapis": "^190.0.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "qrcode": "^1.5.3",
+    "speakeasy": "^2.0.0",
+    "winston": "^3.13.0"
+  }
+}
